@@ -1,0 +1,322 @@
+﻿/*宽度*/
+.w10 {
+    width: 10px;
+}
+
+.w20 {
+    width: 20px;
+}
+
+.w30 {
+    width: 30px;
+}
+
+.w40 {
+    width: 40px;
+}
+
+.w50 {
+    width: 50px;
+}
+
+.w60 {
+    width: 60px;
+}
+
+.w70 {
+    width: 70px;
+}
+
+.w80 {
+    width: 80px;
+}
+
+.w90 {
+    width: 90px;
+}
+
+.w100 {
+    width: 100px;
+}
+
+/*高度*/
+.h10 {
+    height: 10px;
+}
+
+.h20 {
+    height: 20px;
+}
+
+.h30 {
+    height: 30px;
+}
+
+.h40 {
+    height: 40px;
+}
+
+.h50 {
+    height: 50px;
+}
+.h55 {
+    height: 55px;
+}
+.h57 {
+    height: 57px;
+}
+.h58 {
+    height: 58px;
+}
+.h59 {
+    height: 59px;
+}
+
+.h60 {
+    height: 60px;
+}
+
+.h70 {
+    height: 70px;
+}
+
+.h80 {
+    height: 80px;
+}
+
+.h90 {
+    height: 90px;
+}
+
+.h100 {
+    height: 100px;
+}
+.h110 {
+    height: 110px;
+}
+.h120 {
+    height: 120px;
+}
+
+/*行高*/
+.lh20 {
+    line-height: 20px;
+}
+.lh30 {
+    line-height: 30px;
+}
+.lh40 {
+    line-height: 40px;
+}
+.lh45 {
+    line-height: 45px;
+}
+.lh50 {
+    line-height: 50px;
+}
+.lh60 {
+    line-height: 60px;
+}
+.lh70 {
+    line-height: 70px;
+}
+
+/*字体*/
+.f8 {
+    font-size: 8px;
+}
+.f9 {
+    font-size: 9px;
+}
+.f10 {
+    font-size: 10px;
+}
+.f11 {
+    font-size: 11px;
+}
+.f12 {
+    font-size: 12px;
+}
+.f13 {
+    font-size: 13px;
+}
+.f14 {
+    font-size: 14px;
+}
+.f15 {
+    font-size: 15px;
+}
+.f16 {
+    font-size: 16px;
+}
+.f17 {
+    font-size: 17px;
+}
+.f18 {
+    font-size: 18px;
+}
+.f19 {
+    font-size: 19px;
+}
+.f20 {
+    font-size: 20px;
+}
+.f25 {
+    font-size: 25px;
+}
+.f30 {
+    font-size: 30px;
+}
+
+/**背景色**/
+.red {
+    background-color: red;
+}
+.blue {
+    background-color: deepskyblue;
+}
+.green {
+    background-color: lightseagreen;
+}
+.pink {
+    background-color: pink;
+}
+.yellow {
+    background-color: yellow;
+}
+.orange {
+    background-color: orange;
+}
+.white {
+    background-color: white;
+}
+
+/*字体颜色*/
+.white_f{color:white;}
+.white_qian_f{color:#e4e3e3;}
+.hui{
+    color:#ccc;
+}
+
+
+
+
+
+/*内边距u*/
+.p0 {
+    padding: 0;
+}
+.p1 {
+    padding: 1px;
+}
+.p2 {
+    padding: 2px;
+}
+.p3 {
+    padding: 3px;
+}
+.p5 {
+    padding: 5px;
+}
+.pl0 {
+    padding-left: 0px;
+}
+.pl1 {
+    padding-left: 1px;
+}
+
+.pl2 {
+    padding-left: 2px;
+}
+
+.pl3 {
+    padding-left: 3px;
+}
+
+.pl4 {
+    padding-left: 4px;
+}
+
+.pl5 {
+    padding-left: 5px;
+}
+.pl8 {
+    padding-left: 8px;
+}
+.pl10 {
+    padding-left: 10px;
+}
+
+.pr1 {
+    padding-right: 1px;
+}
+.pr2 {
+    padding-right: 2px;
+}
+.pr3 {
+    padding-right: 3px;
+}
+.pr4 {
+    padding-right: 4px;
+}
+.pr5 {
+    padding-right: 5px;
+}
+
+.pt2 {
+    padding-top: 2px;
+}
+.pt3 {
+    padding-top: 3px;
+}
+.pt4 {
+    padding-top: 4px;
+}
+.pt5 {
+    padding-top: 5px;
+}
+.pt8 {
+    padding-top: 8px;
+}
+
+.pt10 {
+    padding-top: 10px;
+}
+.pt15 {
+    padding-top: 15px;
+}
+
+
+
+/*外边距u*/
+.m0 {
+    margin: 0;
+}
+.m1 {
+    margin: 1px;
+}
+.mt5 {
+    margin-top: 5px;
+}
+.mt10 {
+    margin-top: 10px;
+}
+.mt15 {
+    margin-top: 15px;
+}
+
+/*border*/
+.border_r {
+    border-right: 1px solid #ccc;
+}
+.border_b {
+    border-bottom: 1px solid #ccc;
+}
+
+/****圆角*/
+.yuanjiao5 {
+    border-radius: 5px 5px;
+}
+.yuanjiao50 {
+    border-radius: 50px 50px;
+}

@@ -1,0 +1,785 @@
+﻿
+@{
+    ViewData["Title"] = "Details";
+}
+
+<style>
+    #detailsVm table tbody tr {
+        background-color: #343a40;
+        height: 45px;
+        color: white;
+    }
+    .nav-links{
+        height:60px;
+        width:100px;
+    }
+    .li-active {
+        margin-top:15px;
+        height: 3px;
+        background-color: red;
+    }
+
+    .fb-red {
+        color: red;
+    }
+
+    .fb-green {
+        color: lightseagreen;
+    }
+
+    .fb-gray {
+        color: gray;
+    }
+    .fb-blue {
+        color: deepskyblue;
+    }
+
+</style>
+
+<div class="text-center" id="detailsVm">
+
+    <div class="row">
+        <div class="col-lg-12 col-sm-12">
+            <table class="col-lg-12 table-responsive-sm" border="1">
+                <thead>
+                    <tr>
+                        <th rowspan="2">#</th>
+                        <th rowspan="2">期号</th>
+                        <th rowspan="2">开奖日期</th>
+                        <th rowspan="2">开奖号码</th>
+                        <th colspan="2">直选</th>
+                        <th colspan="2">组选3</th>
+                        <th colspan="2">组选6</th>
+                    </tr>
+                    <tr>
+                        <th>注数</th>
+                        <th>奖金</th>
+                        <th>注数</th>
+                        <th>奖金</th>
+                        <th>注数</th>
+                        <th>奖金</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>1</th>
+                        <td>{{LocalArray3Data.LotterNo}}</td>
+                        <td>{{LocalArray3Data.DrawDate}}</td>
+                        <td>{{LocalArray3Data.DrawResult}}</td>
+                        <td>{{LocalArray3Data.ZhiLotterCount}}</td>
+                        <td>{{LocalArray3Data.ZhiAmount}}</td>
+                        <td>{{LocalArray3Data.Group3LotterCount}}</td>
+                        <td>{{LocalArray3Data.Group3Amount}}</td>
+                        <td>{{LocalArray3Data.Group6LotterCount}}</td>
+                        <td>{{LocalArray3Data.Group6Amount}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row mt15">
+        <div class="col-lg-12">
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-links" role="presentation">
+                    <a class=" " id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true" v-on:click="ChangeTab(0)">历史统计</a>
+                    <div v-if="LiActive === 0" class="li-active"></div>
+                </li>
+                <li class="nav-links" role="presentation">
+                    <a class="" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false" v-on:click="ChangeTab(1)">下期分析</a>
+                    <div v-if="LiActive === 1" class="li-active"></div>
+                </li>
+                <li class="nav-links" role="presentation">
+                    <a class="" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false" v-on:click="ChangeTab(2)">下期预测</a>
+                    <div v-if="LiActive === 2" class="li-active"></div>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="col-lg-12">
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                    @*第1位*@
+                    <div class="row mt15  h100">
+                        <div class="col-2 h100 pt8">
+                            <span class="f25">第一位</span>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">0</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNum1Data.Num0 | GetCountCorlor">{{Array3CountNum1Data.Num0}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">1</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNum1Data.Num1 | GetCountCorlor">{{Array3CountNum1Data.Num1}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">2</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNum1Data.Num2 | GetCountCorlor">{{Array3CountNum1Data.Num2}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">3</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNum1Data.Num3 | GetCountCorlor">{{Array3CountNum1Data.Num3}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">4</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNum1Data.Num4 | GetCountCorlor">{{Array3CountNum1Data.Num4}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">5</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNum1Data.Num5 | GetCountCorlor">{{Array3CountNum1Data.Num5}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">6</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNum1Data.Num6 | GetCountCorlor">{{Array3CountNum1Data.Num6}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">7</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNum1Data.Num7 | GetCountCorlor">{{Array3CountNum1Data.Num7}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">8</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNum1Data.Num8 | GetCountCorlor">{{Array3CountNum1Data.Num8}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">9</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNum1Data.Num9 | GetCountCorlor">{{Array3CountNum1Data.Num9}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    @*第2位*@
+                    <div class="row mt15  h100">
+                        <div class="col-2 h100 pt8">
+                            <span class="f25">第二位</span>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">0</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNum2Data.Num0 | GetCountCorlor">{{Array3CountNum2Data.Num0}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">1</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNum2Data.Num1 | GetCountCorlor">{{Array3CountNum2Data.Num1}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">2</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNum2Data.Num2 | GetCountCorlor">{{Array3CountNum2Data.Num2}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">3</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNum2Data.Num3 | GetCountCorlor">{{Array3CountNum2Data.Num3}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">4</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNum2Data.Num4 | GetCountCorlor">{{Array3CountNum2Data.Num4}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">5</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNum2Data.Num5 | GetCountCorlor">{{Array3CountNum2Data.Num5}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">6</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNum2Data.Num6 | GetCountCorlor">{{Array3CountNum2Data.Num6}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">7</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNum2Data.Num7 | GetCountCorlor">{{Array3CountNum2Data.Num7}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">8</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNum2Data.Num8 | GetCountCorlor">{{Array3CountNum2Data.Num8}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">9</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNum2Data.Num9 | GetCountCorlor">{{Array3CountNum2Data.Num9}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    @*第3位*@
+                    <div class="row mt15  h100">
+                        <div class="col-2 h100 pt8">
+                            <span class="f25">第三位</span>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">0</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNum3Data.Num0 | GetCountCorlor">{{Array3CountNum3Data.Num0}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">1</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNum3Data.Num1 | GetCountCorlor">{{Array3CountNum3Data.Num1}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">2</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNum3Data.Num2 | GetCountCorlor">{{Array3CountNum3Data.Num2}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">3</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNum3Data.Num3 | GetCountCorlor">{{Array3CountNum3Data.Num3}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">4</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNum3Data.Num4 | GetCountCorlor">{{Array3CountNum3Data.Num4}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">5</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNum3Data.Num5 | GetCountCorlor">{{Array3CountNum3Data.Num5}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">6</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNum3Data.Num6 | GetCountCorlor">{{Array3CountNum3Data.Num6}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">7</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNum3Data.Num7 | GetCountCorlor">{{Array3CountNum3Data.Num7}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">8</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNum3Data.Num8 | GetCountCorlor">{{Array3CountNum3Data.Num8}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">9</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNum3Data.Num9 | GetCountCorlor">{{Array3CountNum3Data.Num9}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                    @*第1位*@
+                    <div class="row mt15  h100">
+                        <div class="col-2 h100 pt8">
+                            <span class="f25">第一位</span>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">0</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNextNum1Data.Num0 | GetCountCorlor">{{Array3CountNextNum1Data.Num0}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">1</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNextNum1Data.Num1 | GetCountCorlor">{{Array3CountNextNum1Data.Num1}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">2</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNextNum1Data.Num2 | GetCountCorlor">{{Array3CountNextNum1Data.Num2}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">3</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNextNum1Data.Num3 | GetCountCorlor">{{Array3CountNextNum1Data.Num3}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">4</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNextNum1Data.Num4 | GetCountCorlor">{{Array3CountNextNum1Data.Num4}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">5</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNextNum1Data.Num5 | GetCountCorlor">{{Array3CountNextNum1Data.Num5}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">6</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNextNum1Data.Num6 | GetCountCorlor">{{Array3CountNextNum1Data.Num6}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">7</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNextNum1Data.Num7 | GetCountCorlor">{{Array3CountNextNum1Data.Num7}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">8</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNextNum1Data.Num8 | GetCountCorlor">{{Array3CountNextNum1Data.Num8}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">9</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNextNum1Data.Num9 | GetCountCorlor">{{Array3CountNextNum1Data.Num9}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    @*第2位*@
+                    <div class="row mt15  h100">
+                        <div class="col-2 h100 pt8">
+                            <span class="f25">第二位</span>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">0</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNextNum2Data.Num0 | GetCountCorlor">{{Array3CountNextNum2Data.Num0}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">1</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNextNum2Data.Num1 | GetCountCorlor">{{Array3CountNextNum2Data.Num1}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">2</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNextNum2Data.Num2 | GetCountCorlor">{{Array3CountNextNum2Data.Num2}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">3</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNextNum2Data.Num3 | GetCountCorlor">{{Array3CountNextNum2Data.Num3}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">4</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNextNum2Data.Num4 | GetCountCorlor">{{Array3CountNextNum2Data.Num4}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">5</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNextNum2Data.Num5 | GetCountCorlor">{{Array3CountNextNum2Data.Num5}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">6</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNextNum2Data.Num6 | GetCountCorlor">{{Array3CountNextNum2Data.Num6}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">7</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNextNum2Data.Num7 | GetCountCorlor">{{Array3CountNextNum2Data.Num7}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">8</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNextNum2Data.Num8 | GetCountCorlor">{{Array3CountNextNum2Data.Num8}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">9</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNextNum2Data.Num9 | GetCountCorlor">{{Array3CountNextNum2Data.Num9}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    @*第3位*@
+                    <div class="row mt15  h100">
+                        <div class="col-2 h100 pt8">
+                            <span class="f25">第三位</span>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">0</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNextNum3Data.Num0 | GetCountCorlor">{{Array3CountNextNum3Data.Num0}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">1</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNextNum3Data.Num1 | GetCountCorlor">{{Array3CountNextNum3Data.Num1}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">2</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNextNum3Data.Num2 | GetCountCorlor">{{Array3CountNextNum3Data.Num2}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">3</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNextNum3Data.Num3 | GetCountCorlor">{{Array3CountNextNum3Data.Num3}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">4</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNextNum3Data.Num4 | GetCountCorlor">{{Array3CountNextNum3Data.Num4}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">5</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNextNum3Data.Num5 | GetCountCorlor">{{Array3CountNextNum3Data.Num5}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">6</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNextNum3Data.Num6 | GetCountCorlor">{{Array3CountNextNum3Data.Num6}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">7</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNextNum3Data.Num7 | GetCountCorlor">{{Array3CountNextNum3Data.Num7}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">8</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNextNum3Data.Num8 | GetCountCorlor">{{Array3CountNextNum3Data.Num8}}</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30 white_f">9</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span :class="Array3CountNextNum3Data.Num9 | GetCountCorlor">{{Array3CountNextNum3Data.Num9}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                    @*第1位*@
+                    <div class="row mt15  h100" id="NearEveryBallCount">
+                        <div class="col-2 h100">
+                            <span class="f30">第一位</span>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30">0</span>
+                            </div>
+                            <div class="h30 w60 text-center">
+                                <span class="f20">5</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30">1</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30">2</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30">3</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30">4</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30">5</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30">6</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30">7</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30">8</span>
+                            </div>
+                        </div>
+                        <div class="col-1 h100">
+                            <div class="h60 w60 green yuanjiao50 text-center pt4">
+                                <span class="f30">9</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+
+
+
+
+    <h2>历史分析~走势图</h2>
+    
+
+</div>
+<script src="~/lib/vue/vue.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript">
+    var indexVm = new Vue({
+        el: '#detailsVm',
+        data: {
+            LocalArray3Data: {},
+            Array3CountNum1Data: {},
+            Array3CountNum2Data: {},
+            Array3CountNum3Data: {},
+            Array3CountNextNum1Data: {},
+            Array3CountNextNum2Data: {},
+            Array3CountNextNum3Data: {},
+            LotterNoCount: 100,//期数
+            LocalLotterNo: "",//期号
+            LiActive: 0,
+            fbred: "fb-red",
+            fbgray:"fb-gray"
+        },
+        methods: {
+            ChangeTab: function (index) {
+                this.LiActive = index;
+            },
+            GetArray3AnalysisData: function () {
+                var that = this;
+                $.ajax({
+                    method: "get",
+                    url: "/Home/GetArray3AnalysisInfo",
+                    data: {
+                        "lotterNo": this.LocalLotterNo,
+                        "lotterNoCount": this.LotterNoCount
+                    },
+                    dataType: "json",
+                    beforeSend: function () {
+
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        if (data.Success) {
+                            that.LocalArray3Data = data.Data.LocalArray3Data;
+                            console.log(that.LocalArray3Data);
+                            that.Array3CountNum1Data = data.Data.EveryBallCount.No1Count;
+                            that.Array3CountNum2Data = data.Data.EveryBallCount.No2Count;
+                            that.Array3CountNum3Data = data.Data.EveryBallCount.No3Count;
+
+                            that.Array3CountNextNum1Data = data.Data.EveryBallNextCount.No1Count;
+                            that.Array3CountNextNum2Data = data.Data.EveryBallNextCount.No2Count;
+                            that.Array3CountNextNum3Data = data.Data.EveryBallNextCount.No3Count;
+                        } else {
+                            console.log("错误....." + data.Msg);
+                        }
+                    }
+                });
+            },
+
+        },
+        filters: {
+            GetCountCorlor: function (data) {
+                if (data > 20) {
+                    return " fb-red f20";
+                } else if (data > 10) {
+                    return " fb-green f20";
+                }
+                else if (data > 5) {
+                    return " fb-blue f20";
+                } else {
+                    return "f20";
+                }
+            }
+
+        },
+        created: function () {
+
+        },
+        mounted: function ()
+        {
+
+            this.LocalLotterNo = getQueryString("LotterNo");
+            this.GetArray3AnalysisData();
+        }
+    });
+
+
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+</script>
+

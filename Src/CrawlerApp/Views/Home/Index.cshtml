@@ -1,0 +1,112 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<style>
+    #indexVm table tbody tr {
+        background-color: #343a40;
+        height: 45px;
+        color: white;
+    }
+    #indexVm table tbody tr:hover {
+        background-color: white;
+        color:#000000;
+        cursor:pointer;
+        
+    }
+</style>
+
+<div class="text-center" id="indexVm">
+
+    <div class="row">
+        <div class="col-lg-12 col-sm-12">
+            <table class="col-lg-12 table-responsive-sm" border="1">
+                <thead>
+                    <tr>
+                        <th rowspan="2">#</th>
+                        <th rowspan="2">期号</th>
+                        <th rowspan="2">开奖日期</th>
+                        <th rowspan="2">开奖号码</th>
+                        <th colspan="2">直选</th>
+                        <th colspan="2">组选3</th>
+                        <th colspan="2">组选6</th>
+                    </tr>
+                    <tr>
+                        <th>注数</th>
+                        <th>奖金</th>
+                        <th>注数</th>
+                        <th>奖金</th>
+                        <th>注数</th>
+                        <th>奖金</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(item,i) in Array3Data">
+                        <th>{{i+1}}</th>
+                        <td>{{item.LotterNo}}</td>
+                        <td>{{item.DrawDate}}</td>
+                        <td><a :href="item.LotterNo | Array3DetailUrl">{{item.DrawResult}}</a></td>
+                        <td>{{item.ZhiLotterCount}}</td>
+                        <td>{{item.ZhiAmount}}</td>
+                        <td>{{item.Group3LotterCount}}</td>
+                        <td>{{item.Group3Amount}}</td>
+                        <td>{{item.Group6LotterCount}}</td>
+                        <td>{{item.Group6Amount}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</div>
+<script src="~/lib/vue/vue.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript">
+    var indexVm = new Vue({
+        el: '#indexVm',
+        data: {
+            PageSize: 15,
+            Array3Data: [],
+            Total: 1,
+        },
+        methods: {
+            GetDataByPage: function () {
+                var that = this;
+                $.ajax({
+                    method:"get",
+                    url: "/Home/GetArray3Info",
+                    data: {
+                        "PageSize": this.PageSize
+                    },
+                    dataType: "json",
+                    beforeSend: function () {
+
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        if (data.Success) {
+                            that.Array3Data = data.Data;
+                        } else {
+                            console.log("错误....."+data.Msg);
+                        }
+                    }
+                });
+            },
+
+        },
+        filters: {
+            Array3DetailUrl: function (data) {
+                //var arr = data.replace(" ", ",").replace(" ", ",");
+                //console.log(arr);
+                return "/Home/Details?LotterNo=" + data;
+            }
+         
+        },
+        created: function () {
+
+        },
+        mounted: function () {
+            this.GetDataByPage();
+        }
+    });
+</script>
