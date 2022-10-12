@@ -3,13 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenericListDemo", "GenericListDemo\GenericListDemo.csproj", "{E9119241-824B-4912-9654-BCB1C289CD14}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FanSheDemo", "FanSheDemo\FanSheDemo.csproj", "{4A623553-4C9C-49CD-A703-64B86D91E14E}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.爬虫", "1.爬虫", "{AD891831-0773-4F5D-B823-0228A467C431}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrawlerDemo", "CrawlerDemo\CrawlerDemo.csproj", "{6A881109-AC1A-405B-A686-EF6EF9AB3434}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OO", "OO\OO.csproj", "{46D43160-4134-4349-8023-150FCFDDF2C8}"
 EndProject
@@ -39,7 +33,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DbContextAccess", "DbContex
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "7.单元测试(Testing)", "7.单元测试(Testing)", "{C55674B1-0254-419E-AC56-1FD5777CED5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrawlerTesting", "CrawlerTesting\CrawlerTesting.csproj", "{822E0E7F-F685-42BB-AF62-944918C4A2CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrawlerTesting", "CrawlerTesting\CrawlerTesting.csproj", "{822E0E7F-F685-42BB-AF62-944918C4A2CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,18 +41,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E9119241-824B-4912-9654-BCB1C289CD14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E9119241-824B-4912-9654-BCB1C289CD14}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E9119241-824B-4912-9654-BCB1C289CD14}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E9119241-824B-4912-9654-BCB1C289CD14}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4A623553-4C9C-49CD-A703-64B86D91E14E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4A623553-4C9C-49CD-A703-64B86D91E14E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4A623553-4C9C-49CD-A703-64B86D91E14E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4A623553-4C9C-49CD-A703-64B86D91E14E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6A881109-AC1A-405B-A686-EF6EF9AB3434}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6A881109-AC1A-405B-A686-EF6EF9AB3434}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6A881109-AC1A-405B-A686-EF6EF9AB3434}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6A881109-AC1A-405B-A686-EF6EF9AB3434}.Release|Any CPU.Build.0 = Release|Any CPU
 		{46D43160-4134-4349-8023-150FCFDDF2C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{46D43160-4134-4349-8023-150FCFDDF2C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46D43160-4134-4349-8023-150FCFDDF2C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -100,7 +82,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{6A881109-AC1A-405B-A686-EF6EF9AB3434} = {AD891831-0773-4F5D-B823-0228A467C431}
 		{3E46B8CC-D3D8-41EA-BA3E-6605E96A7AF5} = {89740562-FF59-4673-8413-DAF1B57D33B7}
 		{5D97AEC9-B66B-42E8-82D4-1CD56ADE865D} = {89740562-FF59-4673-8413-DAF1B57D33B7}
 		{28691C07-45D2-4365-A136-68FD0555B1AB} = {9E823648-6BE5-4658-887E-B9688E59AC10}

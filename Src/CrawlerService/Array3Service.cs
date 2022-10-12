@@ -198,6 +198,24 @@ namespace CrawlerService
         #region Job--爬虫获取排列三的数据
         public async Task SaveArray3InfoAsync()
         {
+
+            string path = Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase, "DataFiles", "1.xlsx");
+            string html = await File.ReadAllTextAsync(path);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             try
             {
                 //await SaveArray3Analysis(null);

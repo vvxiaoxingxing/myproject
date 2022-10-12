@@ -28,7 +28,7 @@ namespace CrawlerApp.Controllers
 
         public IActionResult Index()
         {
-            //_array3Service.SaveArray3InfoAsync();
+            _array3Service.SaveArray3InfoAsync();
             return View();
         }
 
